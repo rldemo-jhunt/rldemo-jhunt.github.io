@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+  <title>Callback</title>
   <script src=".\node_modules\keycloak-js\dist\keycloak.min.js"></script>
   <script>
     var keycloak = new Keycloak({
@@ -9,13 +9,15 @@
       realm: 'globex',
       clientId: 'globex'
     });
-    function login() {
-      keycloak.login();
-    }
+    keycloak.init({ onLoad: 'login-required' }).success(function(authenticated) {
+      if (authenticated) {
+        document.getElementById('username').innerHTML = keycloak.tokenParsed.preferred_username;
+      }
+    });
   </script>
 </head>
 <body>
-  <h1>Login Page</h1>
-  <button onclick="login()">Login with Keycloak</button>
+  <h1>Welcome</h1>
+  <p>You are logged in as: <span id="username"></span></p>
 </body>
 </html>
