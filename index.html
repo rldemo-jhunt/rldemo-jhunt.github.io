@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Website</title>
-    <style>
-      body {
-        font-family: sans-serif;
-        text-align: center;
-      }
-    </style>
+    <title>Protected Page</title>
   </head>
   <body>
-    <h1>Welcome to my website!</h1>
-    <p>Here's some content...</p>
+    <h1>Welcome to the protected page!</h1>
+    <p>You can only access this page if you are authenticated.</p>
+
+    <script src="node_modules\keycloak-js\dist\keycloak.min.js"></script>
+    <script src="config.js"></script>
+    <script>
+      const keycloak = Keycloak(window.keycloakConfig);
+      keycloak.init({ onLoad: 'check-sso' }).then(() => {
+        if (keycloak.authenticated) {
+          const token = localStorage.getItem('token');
+          const refreshToken = localStorage.getItem('refreshToken');
+          const idToken = localStorage.getItem('idToken');
+          const headers = { 'Authorization': 'Bearer ' + token };
+          // Make API calls with the token and headers as needed.
+        } else {
+          keycloak.login();
+        }
+      });
+    </script>
   </body>
 </html>

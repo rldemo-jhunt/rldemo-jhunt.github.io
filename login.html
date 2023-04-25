@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Login</title>
-  <script src=".\node_modules\keycloak-js\dist\keycloak.min.js"></script>
+  <script src="node_modules\keycloak-js\dist\keycloak.min.js"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <h1>Login</h1>
+  <button onclick="login()">Login</button>
   <script>
-    var keycloak = new Keycloak({
-      url: 'https://localhost:8080/auth/realms/globex/protocol/openid-connect/auth',
-      realm: 'globex',
-      clientId: 'globex'
-    });
+    const keycloak = new Keycloak(keycloakConfig);
+
     function login() {
       keycloak.login();
     }
+
+    keycloak.init({ onLoad: 'check-sso', promiseType: 'native' })
+      .then((authenticated) => {
+        if (authenticated) {
+          console.log("User is authenticated");
+        } else {
+          console.log("User is not authenticated");
+        }
+      })
+      .catch((error) => {
+        console.error("Error initializing Keycloak: ", error);
+      });
   </script>
-</head>
-<body>
-  <h1>Login Page</h1>
-  <button onclick="login()">Login with Keycloak</button>
 </body>
 </html>

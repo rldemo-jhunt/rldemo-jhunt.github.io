@@ -2,22 +2,18 @@
 <html>
 <head>
   <title>Callback</title>
-  <script src=".\node_modules\keycloak-js\dist\keycloak.min.js"></script>
-  <script>
-    var keycloak = new Keycloak({
-      url: 'https://localhost:8080/auth/realms/globex/protocol/openid-connect/auth',
-      realm: 'globex',
-      clientId: 'globex'
-    });
-    keycloak.init({ onLoad: 'login-required' }).success(function(authenticated) {
-      if (authenticated) {
-        document.getElementById('username').innerHTML = keycloak.tokenParsed.preferred_username;
-      }
-    });
-  </script>
 </head>
 <body>
-  <h1>Welcome</h1>
-  <p>You are logged in as: <span id="username"></span></p>
+  <script src="node_modules\keycloak-js\dist\keycloak.js"></script>
+  <script src="config.js"></script>
+  <script>
+    const keycloak = Keycloak(window.keycloakConfig);
+    keycloak.init({ onLoad: 'login-required' }).then(() => {
+      localStorage.setItem('token', keycloak.token);
+      localStorage.setItem('refreshToken', keycloak.refreshToken);
+      localStorage.setItem('idToken', keycloak.idToken);
+      window.location.href = '/';
+    });
+  </script>
 </body>
 </html>
