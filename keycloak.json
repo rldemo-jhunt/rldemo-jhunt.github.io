@@ -1,0 +1,8 @@
+{
+  "realm": "globex",
+  "auth-server-url": "http://localhost:8080/",
+  "ssl-required": "external",
+  "resource": "globex",
+  "public-client": true,
+  "confidential-port": 0
+}

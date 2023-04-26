@@ -5,7 +5,7 @@ const keycloakConfig = {
   redirectUri: "https://rldemo-jhunt.github.io/callback.html"
 };
 
-var keycloak = new Keycloak(keycloakConfig);
+const keycloak = new Keycloak(keycloakConfig);
 
 keycloak.init({
   onLoad: 'login-required'
