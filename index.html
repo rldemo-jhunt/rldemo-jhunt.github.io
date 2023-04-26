@@ -1,27 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Protected Page</title>
+    <title>Globex</title>
+    <script src="./keycloak-js-adapter-npm-dist-21.0.2/dist/keycloak.js" defer></script>
+    <script src="./keycloak.js" defer></script>
   </head>
   <body>
-    <h1>Welcome to the protected page!</h1>
-    <p>You can only access this page if you are authenticated.</p>
-
-    <script src=".\node_modules\keycloak-js\dist\keycloak.min.js"></script>
-    <script src="config.js"></script>
-    <script>
-      const keycloak = Keycloak(window.keycloakConfig);
-      keycloak.init({ onLoad: 'check-sso' }).then(() => {
-        if (keycloak.authenticated) {
-          const token = localStorage.getItem('token');
-          const refreshToken = localStorage.getItem('refreshToken');
-          const idToken = localStorage.getItem('idToken');
-          const headers = { 'Authorization': 'Bearer ' + token };
-          // Make API calls with the token and headers as needed.
-        } else {
-          keycloak.login();
-        }
-      });
-    </script>
+    <h1>Welcome to Globex</h1>
+    <button onclick="keycloak.login()">Login with Keycloak</button>
   </body>
 </html>

@@ -3,17 +3,6 @@
 <head>
   <title>Callback</title>
 </head>
-<body>
-  <script src=".\node_modules\keycloak-js\dist\keycloak.js"></script>
-  <script src="config.js"></script>
-  <script>
-    const keycloak = Keycloak(window.keycloakConfig);
-    keycloak.init({ onLoad: 'login-required' }).then(() => {
-      localStorage.setItem('token', keycloak.token);
-      localStorage.setItem('refreshToken', keycloak.refreshToken);
-      localStorage.setItem('idToken', keycloak.idToken);
-      window.location.href = '/';
-    });
-  </script>
+<body onload="keycloak.callback()">
 </body>
 </html>
