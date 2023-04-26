@@ -1,7 +1,13 @@
-const keycloak = new Keycloak("./keycloak.json");
+const keycloak = new Keycloak({
+  url: 'http://localhost:8080/auth',
+  realm: 'globex',
+  clientId: 'globex',
+  sslRequired: 'external',
+  publicClient: true,
+});
 
 keycloak.init().then(function(authenticated) {
-  alert(authenticated ? 'authenticated' : 'not authenticated');
+  alert(authenticated ? 'Authenticated Successfully' : 'Authentication Failure');
 }).catch(function() {
-  alert('failed to initialize');
+  alert('Keycloak Failed to Initialize');
 });
