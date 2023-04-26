@@ -48,7 +48,9 @@
          function login() {
            const email = document.querySelector('input[type="text"]').value;
            const password = document.querySelector('input[type="password"]').value;
+           if (email && password) {
             keycloak.login({username: email, password: password});
+           };
          }
       </script>
    </body>
