@@ -1,6 +1,6 @@
 {
   "realm": "globex",
-  "auth-server-url": "http://localhost:8080/",
+  "auth-server-url": "http://localhost:8080/auth",
   "ssl-required": "external",
   "resource": "globex",
   "public-client": true,
