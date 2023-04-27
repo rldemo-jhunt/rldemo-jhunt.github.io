@@ -6,9 +6,18 @@
       <link rel="stylesheet" href="style.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
       <script src="./keycloak-js-adapter-npm-dist-21.0.2/dist/keycloak.js"></script>
-      <script src="./keycloak.js"></script>
+      <script>
+         function initKeycloak() {
+               const keycloak = new Keycloak();
+               keycloak.init().then(function(authenticated) {
+                  alert(authenticated ? 'authenticated' : 'not authenticated');
+               }).catch(function() {
+                  alert('failed to initialize');
+               });
+         }
+      </script>
    </head>
-   <body>
+   <body onload="initKeycloak()"">
       <div class="bg-img">
          <div class="content">
             <header>Welcome to Globex</header>
