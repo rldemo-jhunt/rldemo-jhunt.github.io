@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
    <head>
-      <title>HTML Meta Tag</title>
-      <meta http-equiv = "refresh" content = "3; url = https://www.qries.com" />
+      <meta charset="utf-8">
+      <title>Globex SSO</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="./keycloak-js-adapter-npm-dist-21.0.2/dist/keycloak.js"></script>
+      <script src="./keycloak.js"></script>
    </head>
    <body>
-      <p>Redirecting to another URL</p>
+      <div class="bg-img">
+        <div class="content">
+            <header>Authenticated!</header>
+            <img src="globex.png" alt="Globex Logo">
+            <div class="field">
+               <button onclick="logout()">Logout</button>
+            </div>
+         </div>
+      </div>
    </body>
 </html>
