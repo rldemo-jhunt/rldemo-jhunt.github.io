@@ -156,6 +156,11 @@ i span{
 .signup a:hover{
   text-decoration: underline;
 }
+
+
+
+
+
 .field button {
     height: 100%;
     width: 100%;
@@ -179,3 +184,8 @@ i span{
  .field button:hover {
     background: #2691d9;
  }
+ .content img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 0 35px 0;
+}

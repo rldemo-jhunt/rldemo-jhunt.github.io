@@ -12,3 +12,7 @@ function logout() {
   //keycloak.logout('http://localhost:8080/auth/realms/globex/protocol/openid-connect/logout?redirect_uri=encodedRedirectUri')
   //alert("Logged Out");
 }
+
+function callback() {
+  //keycloak.callback()
+}
