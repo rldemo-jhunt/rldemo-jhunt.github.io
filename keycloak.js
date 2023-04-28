@@ -11,11 +11,13 @@ function login() {
 }
 
 function logout() {  
-  keycloak.logout({ redirectUri : 'http://localhost:8080/' })
-    .then((success) => {
-      console.log("--> log: logout success ", success );
-    })
-    .catch((error) => {
-      console.error("--> log: logout error ", error );
-    });
+  keycloak.onReady.then(function() {
+    keycloak.logout()
+      .then((success) => {
+        console.log("--> log: logout success ", success );
+      })
+      .catch((error) => {
+        console.error("--> log: logout error ", error );
+      });
+  });
 }
