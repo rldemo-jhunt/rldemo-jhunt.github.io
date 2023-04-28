@@ -1,4 +1,4 @@
-var keycloak = new Keycloak("https://rldemo-jhunt.github.io/keycloak.json");
+var keycloak = new Keycloak('./keycloak.json');
 
 function login() {
   keycloak.init({ onLoad: 'login-required' })
@@ -11,13 +11,12 @@ function login() {
 }
 
 function logout() {  
-  keycloak.onReady.then(function() {
-    keycloak.logout()
-      .then((success) => {
-        console.log("--> log: logout success ", success );
-      })
-      .catch((error) => {
-        console.error("--> log: logout error ", error );
-      });
-  });
+  keycloak.logout()
+    .then((success) => {
+      console.log("--> log: logout success ", success );
+      window.location.href = "login.html"; // Redirect to the login page after logout
+    })
+    .catch((error) => {
+      console.error("--> log: logout error ", error );
+    });
 }
