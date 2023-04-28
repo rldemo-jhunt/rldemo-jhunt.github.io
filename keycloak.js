@@ -13,8 +13,8 @@ function login() {
 function logout() {  
   keycloak.logout()
     .then((success) => {
+      window.location.href = "home.html";
       console.log("--> log: logout success ", success );
-      window.location.href = "login.html"; // Redirect to the login page after logout
     })
     .catch((error) => {
       console.error("--> log: logout error ", error );
