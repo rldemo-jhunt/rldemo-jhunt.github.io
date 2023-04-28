@@ -4,6 +4,7 @@ function login() {
   keycloak.init({ onLoad: 'login-required' })
     .then(function(authenticated) {
       console.log(authenticated ? 'authenticated' : 'not authenticated');
+      window.location.href = 'home.html';
     })
     .catch(function() {
       console.error('failed to initialize');
