@@ -8,14 +8,13 @@
       <script src="./keycloak-js-adapter-npm-dist-21.0.2/dist/keycloak.js"></script>
       <script src="./keycloak.js"></script>
    </head>
-   <body>
+   <body onload="login()">
       <div class="bg-img">
         <div class="content">
             <header>Authenticated!</header>
             <img src="globex.png" alt="Globex Logo">
             <div class="field">
                <button onclick="logout()">Logout</button>
-               <a href='http://localhost:8080/auth/realms/globex/protocol/openid-connect/logout?redirect_uri=https://rldemo-jhunt.github.io'>Logout</a>"
             </div>
          </div>
       </div>
