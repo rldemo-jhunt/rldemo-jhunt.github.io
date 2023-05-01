@@ -15,7 +15,7 @@ var keycloak = new Keycloak('./keycloak.json');
 function logout() {  
   keycloak.logout()
     .then((success) => {
-      window.location.href = "home.html";
+      window.location.href = "index.html";
       console.log("--> log: logout success ", success );
     })
     .catch((error) => {
