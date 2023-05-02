@@ -1,6 +1,6 @@
 var keycloak = new Keycloak('./keycloak.json');
 
-//function login() {
+function login() {
   keycloak.init({
       onLoad: 'login-required'
     })
@@ -10,7 +10,7 @@ var keycloak = new Keycloak('./keycloak.json');
     .catch(function() {
       console.error('Failed to initialize');
     });
-//}
+}
 
 function logout() {  
   keycloak.logout()

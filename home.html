@@ -8,13 +8,14 @@
       <script src="./keycloak-js-adapter-npm-dist-21.0.2/dist/keycloak.js"></script>
       <script src="./keycloak.js"></script>
    </head>
-   <body onload="login()">
+   <body>
       <div class="bg-img">
         <div class="content">
             <header>Authenticated!</header>
             <img src="globex.png" alt="Globex Logo">
             <div class="field">
                <button onclick="window.location.href='index.html'">Logout</button>
+               <button onclick="logout()">Logout</button>
             </div>
          </div>
       </div>
